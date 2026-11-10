@@ -48,7 +48,7 @@ export default function Home() {
           <Cover images={e.metadata?.images} title={e.metadata?.title ?? `Equipment #${e.id}`} />
           <div className="top-row">
             <strong>{e.metadata?.title ?? `Equipment #${e.id}`}</strong>
-            <span className="pill">{LEVELS[e.metadata?.verification_level ?? 1]}</span>
+            <span className={`pill ${(e.metadata?.verification_level ?? 1) >= 2 ? "done" : ""}`}>{LEVELS[e.metadata?.verification_level ?? 1]}</span>
           </div>
           <div className="meta">{e.metadata?.category} · {e.metadata?.location}</div>
           <div className="row"><span>Per day</span><span>{bot(e.daily_rate_wei)} BOT</span></div>
